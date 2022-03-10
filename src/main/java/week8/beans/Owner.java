@@ -4,8 +4,14 @@
  */
 package week8.beans;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Owner {
+	@Id
+	@GeneratedValue
 	private long id;
 	private String name;
 	private String pieceDescription;
@@ -63,6 +69,9 @@ public class Owner {
 	 */
 	public Owner() {
 		super();
+		this.name = "Anonymous";
+		this.pieceDescription = "unknown";
+		this.pieceNotes = "none";
 		// TODO Auto-generated constructor stub
 	}
 	/**
@@ -74,6 +83,18 @@ public class Owner {
 	public Owner(long id, String name, String pieceDescription, String pieceNotes) {
 		super();
 		this.id = id;
+		this.name = name;
+		this.pieceDescription = pieceDescription;
+		this.pieceNotes = pieceNotes;
+	}
+	
+	/**
+	 * @param name
+	 * @param pieceDescription
+	 * @param pieceNotes
+	 */
+	public Owner(String name, String pieceDescription, String pieceNotes) {
+		super();
 		this.name = name;
 		this.pieceDescription = pieceDescription;
 		this.pieceNotes = pieceNotes;
