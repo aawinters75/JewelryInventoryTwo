@@ -25,6 +25,7 @@ public class JewelryInventoryTwoApplication {
 				Owner c = appContext.getBean("owner", Owner.class);
 				System.out.println(c.toString());
 	}
+	/*
 	@Autowired
 	OwnerRepository repo;
 	public void run(String... args) throws Exception {
@@ -44,7 +45,7 @@ public class JewelryInventoryTwoApplication {
 			System.out.println(people.toString());
 		}
 		((AbstractApplicationContext) appContext).close();
-	}
+	}*/
 	}
 
 

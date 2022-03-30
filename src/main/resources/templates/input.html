@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New Owner</title>
+</head>
+<body>
+	<form th:object="${newOwner}" th:action="@{/inputOwner}"method='POST'>
+	
+		Name: <input name="name" size="20" th:field="*{name}"><br />
+		Piece Description: <input name="pieceDescription" size="300" th:field="*{pieceDescription}"><br />
+		Additional Notes: <input name="pieceNotes" size="200" th:field="*{pieceNotes}"><br />
+
+		<input name="submit" type="submit" value="submit" />
+	</form>
+<a href="viewAll">View all Owners</a>
+</body>
+</html>
