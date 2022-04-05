@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert New Owner</title>
+	<meta charset="UTF-8">
+	<title>Insert New Owner</title>
+	
+	<script>
+		//Added Script for validation on Input page - AW
+  		function checkForm(form)
+  		{
+    		// validation fails if the input is blank
+    		if(form.inputfield.value == "") {
+      		alert("Error: Input is empty!");
+      		form.inputfield.focus();
+     		 return false;
+    		}
+
+    		// regular expression to match only alphanumeric characters and spaces
+    		var re = /^[\w ]+$/;
+
+    		// validation fails if the input doesn't match our regular expression
+    		if(!re.test(form.inputfield.value)) {
+      		alert("Error: Input contains invalid characters!");
+      		form.inputfield.focus();
+      		return false;
+    		}
+
+    		// validation was successful
+    		return true;
+  		}
+
+</script>
+
 </head>
 <body>
-	<form th:object="${newOwner}" th:action="@{/inputOwner}"method='POST'>
+	
+	<form th:object="${newOwner}" th:action="@{/inputOwner}"
+		method='POST' action="form-handler" onsubmit="return checkForm(this);">
 	
 		Name: <input name="name" size="20" th:field="*{name}"><br />
 		Piece Description: <input name="pieceDescription" size="300" th:field="*{pieceDescription}"><br />
